@@ -1,6 +1,6 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate\PageStructureComponents\HtmlPageSkeletonComponent;
+namespace DumpsterfirePages\PageTemplate\PageStructureComponents\HtmlPageSkeletonComponent;
 
 /**
  * @var HtmlPageSkeletonComponent $this

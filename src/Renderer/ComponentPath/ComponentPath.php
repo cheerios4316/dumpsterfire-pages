@@ -1,12 +1,12 @@
 <?php
 
-namespace DumpsterfireComponents\Renderer\ComponentPath;
+namespace DumpsterfirePages\Renderer\ComponentPath;
 
-use DumpsterfireComponents\Component;
-use DumpsterfireComponents\Renderer\ComponentPath\PathBuilder\CssPathBuilder;
-use DumpsterfireComponents\Renderer\ComponentPath\PathBuilder\JsPathBuilder;
-use DumpsterfireComponents\Renderer\ComponentPath\PathBuilder\PathBuilderInterface;
-use DumpsterfireComponents\Renderer\ComponentPath\PathBuilder\ViewPathBuilder;
+use DumpsterfirePages\Component;
+use DumpsterfirePages\Renderer\ComponentPath\PathBuilder\CssPathBuilder;
+use DumpsterfirePages\Renderer\ComponentPath\PathBuilder\JsPathBuilder;
+use DumpsterfirePages\Renderer\ComponentPath\PathBuilder\PathBuilderInterface;
+use DumpsterfirePages\Renderer\ComponentPath\PathBuilder\ViewPathBuilder;
 
 class ComponentPath
 {

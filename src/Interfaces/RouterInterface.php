@@ -1,6 +1,6 @@
 <?php
 
-namespace DumpsterfireRouter\Interfaces;
+namespace DumpsterfirePages\Interfaces;
 
 interface RouterInterface
 {

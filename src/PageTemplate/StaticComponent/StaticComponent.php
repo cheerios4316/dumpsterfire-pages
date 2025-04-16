@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate\StaticComponent;
+namespace DumpsterfirePages\PageTemplate\StaticComponent;
 
-use DumpsterfireComponents\Component;
+use DumpsterfirePages\Component;
 
 class StaticComponent extends Component
 {

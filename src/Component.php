@@ -1,12 +1,12 @@
 <?php
 
-namespace DumpsterfireComponents;
+namespace DumpsterfirePages;
 
 use DumpsterfireBase\Container\Container;
-use DumpsterfireComponents\Interfaces\IRenderable;
-use DumpsterfireComponents\Interfaces\ISetup;
-use DumpsterfireComponents\Interfaces\RendererInterface;
-use DumpsterfireComponents\Renderer\ComponentRenderer;
+use DumpsterfirePages\Interfaces\IRenderable;
+use DumpsterfirePages\Interfaces\ISetup;
+use DumpsterfirePages\Interfaces\RendererInterface;
+use DumpsterfirePages\Renderer\ComponentRenderer;
 
 /**
  * Base Component class.

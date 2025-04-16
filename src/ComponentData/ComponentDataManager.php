@@ -1,11 +1,11 @@
 <?php
 
-namespace DumpsterfireComponents\ComponentData;
+namespace DumpsterfirePages\ComponentData;
 
 use DumpsterfireBase\Container\Container;
 use DumpsterfireBase\Interfaces\SingletonInterface;
-use DumpsterfireComponents\Component;
-use DumpsterfireComponents\Renderer\ComponentPath\ComponentPath;
+use DumpsterfirePages\Component;
+use DumpsterfirePages\Renderer\ComponentPath\ComponentPath;
 
 class ComponentDataManager implements SingletonInterface
 {

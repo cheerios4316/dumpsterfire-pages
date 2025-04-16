@@ -1,5 +1,5 @@
 <?php
 
-namespace DumpsterfireComponents\Exceptions;
+namespace DumpsterfirePages\Exceptions;
 
-class ComponentRendererException extends DumpsterfireComponentsException {}
+class ComponentRendererException extends DumpsterfirePagesException {}

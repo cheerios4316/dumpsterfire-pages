@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate\DependenciesComponent;
+namespace DumpsterfirePages\PageTemplate\DependenciesComponent;
 
-use DumpsterfireComponents\PageTemplate\PageStructureComponents\DependenciesComponent\DependenciesComponent;
+use DumpsterfirePages\PageTemplate\PageStructureComponents\DependenciesComponent\DependenciesComponent;
 
 /**
  * @var DependenciesComponent $this

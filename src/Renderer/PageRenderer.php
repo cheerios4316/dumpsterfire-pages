@@ -1,20 +1,20 @@
 <?php
 
-namespace DumpsterfireComponents\Renderer;
+namespace DumpsterfirePages\Renderer;
 
 use DumpsterfireBase\Container\Container;
-use DumpsterfireComponents\AssetsManager\AssetsManager;
-use DumpsterfireComponents\Component;
-use DumpsterfireComponents\Exceptions\ComponentRendererException;
-use DumpsterfireComponents\Exceptions\PageRendererException;
-use DumpsterfireComponents\Interfaces\RendererInterface;
-use DumpsterfireComponents\PageComponent;
-use DumpsterfireComponents\PageTemplate\PageStructureComponents\DependenciesComponent\DependenciesComponent;
-use DumpsterfireComponents\PageTemplate\PageStructureComponents\HtmlPageSkeletonComponent\HtmlPageSkeletonComponent;
-use DumpsterfireComponents\PageTemplate\PageStructureComponents\PageHeadComponent\PageHeadComponent;
-use DumpsterfireComponents\PageTemplate\PageStructureComponents\PageWrapperComponent\PageWrapperComponent;
-use DumpsterfireComponents\PageTemplate\PageTemplate;
-use DumpsterfireComponents\PageTemplate\StaticComponent\StaticComponent;
+use DumpsterfirePages\AssetsManager\AssetsManager;
+use DumpsterfirePages\Component;
+use DumpsterfirePages\Exceptions\ComponentRendererException;
+use DumpsterfirePages\Exceptions\PageRendererException;
+use DumpsterfirePages\Interfaces\RendererInterface;
+use DumpsterfirePages\PageComponent;
+use DumpsterfirePages\PageTemplate\PageStructureComponents\DependenciesComponent\DependenciesComponent;
+use DumpsterfirePages\PageTemplate\PageStructureComponents\HtmlPageSkeletonComponent\HtmlPageSkeletonComponent;
+use DumpsterfirePages\PageTemplate\PageStructureComponents\PageHeadComponent\PageHeadComponent;
+use DumpsterfirePages\PageTemplate\PageStructureComponents\PageWrapperComponent\PageWrapperComponent;
+use DumpsterfirePages\PageTemplate\PageTemplate;
+use DumpsterfirePages\PageTemplate\StaticComponent\StaticComponent;
 
 class PageRenderer implements RendererInterface
 {

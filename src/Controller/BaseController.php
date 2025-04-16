@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireRouter\Controller;
+namespace DumpsterfirePages\Controller;
 
-use DumpsterfireRouter\Exceptions\ControllerException;
+use DumpsterfirePages\Exceptions\ControllerException;
 use DumpsterfireBase\Interfaces\ILoggable;
 use Throwable;
 use TypeError;

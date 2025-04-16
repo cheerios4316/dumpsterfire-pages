@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireComponents\Exceptions;
+namespace DumpsterfirePages\Exceptions;
 
-class AssetsException extends DumpsterfireComponentsException
+class AssetsException extends DumpsterfirePagesException
 {
 
 }

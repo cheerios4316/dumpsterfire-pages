@@ -1,7 +1,7 @@
 <?php
 
-namespace DumpsterfireComponents\Exceptions;
+namespace DumpsterfirePages\Exceptions;
 
 use Exception;
 
-class DumpsterfireComponentsException extends Exception {}
+class DumpsterfirePagesException extends Exception {}

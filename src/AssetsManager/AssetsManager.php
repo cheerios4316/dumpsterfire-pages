@@ -1,11 +1,11 @@
 <?php
 
-namespace DumpsterfireComponents\AssetsManager;
+namespace DumpsterfirePages\AssetsManager;
 
 use DumpsterfireBase\Container\Container;
-use DumpsterfireComponents\AssetsManager\AssetObjects\CssAsset;
-use DumpsterfireComponents\AssetsManager\AssetObjects\JsAsset;
-use DumpsterfireComponents\Interfaces\AssetInterface;
+use DumpsterfirePages\AssetsManager\AssetObjects\CssAsset;
+use DumpsterfirePages\AssetsManager\AssetObjects\JsAsset;
+use DumpsterfirePages\Interfaces\AssetInterface;
 
 class AssetsManager
 {

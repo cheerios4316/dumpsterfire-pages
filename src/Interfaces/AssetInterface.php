@@ -1,5 +1,5 @@
 <?php
 
-namespace DumpsterfireComponents\Interfaces;
+namespace DumpsterfirePages\Interfaces;
 
 interface AssetInterface extends IRenderable {}

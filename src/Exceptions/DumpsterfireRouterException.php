@@ -1,7 +1,7 @@
 <?php
 
-namespace DumpsterfireRouter\Exceptions;
+namespace DumpsterfirePages\Exceptions;
 
 use Exception;
 
-class DumpsterfireRouterException extends Exception {}
+class DumpsterfirePagesException extends Exception {}

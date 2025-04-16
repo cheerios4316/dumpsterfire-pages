@@ -1,9 +1,9 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate\PageStructureComponents\DependenciesComponent;
+namespace DumpsterfirePages\PageTemplate\PageStructureComponents\DependenciesComponent;
 
-use DumpsterfireComponents\Component;
-use DumpsterfireComponents\Interfaces\AssetInterface;
+use DumpsterfirePages\Component;
+use DumpsterfirePages\Interfaces\AssetInterface;
 
 class DependenciesComponent extends Component
 {

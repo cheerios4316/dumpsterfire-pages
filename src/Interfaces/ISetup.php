@@ -1,6 +1,6 @@
 <?php
 
-namespace DumpsterfireComponents\Interfaces;
+namespace DumpsterfirePages\Interfaces;
 
 interface ISetup
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace DumpsterfireComponents\Renderer\ComponentPath\PathBuilder;
+namespace DumpsterfirePages\Renderer\ComponentPath\PathBuilder;
 
 interface PathBuilderInterface
 {

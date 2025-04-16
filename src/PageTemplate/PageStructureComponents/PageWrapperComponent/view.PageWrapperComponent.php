@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate\PageWrapperComponent;
+namespace DumpsterfirePages\PageTemplate\PageWrapperComponent;
 
-use DumpsterfireComponents\PageTemplate\PageStructureComponents\PageWrapperComponent\PageWrapperComponent;
+use DumpsterfirePages\PageTemplate\PageStructureComponents\PageWrapperComponent\PageWrapperComponent;
 
 /**
  * @var PageWrapperComponent $this

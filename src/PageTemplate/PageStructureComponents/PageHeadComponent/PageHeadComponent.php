@@ -1,9 +1,9 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate\PageStructureComponents\PageHeadComponent;
+namespace DumpsterfirePages\PageTemplate\PageStructureComponents\PageHeadComponent;
 
-use DumpsterfireComponents\Component;
-use DumpsterfireComponents\PageTemplate\PageStructureComponents\DependenciesComponent\DependenciesComponent;
+use DumpsterfirePages\Component;
+use DumpsterfirePages\PageTemplate\PageStructureComponents\DependenciesComponent\DependenciesComponent;
 
 class PageHeadComponent extends Component
 {

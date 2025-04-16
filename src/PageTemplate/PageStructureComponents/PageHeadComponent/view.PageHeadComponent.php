@@ -1,6 +1,6 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate\PageStructureComponents\PageHeadComponent;
+namespace DumpsterfirePages\PageTemplate\PageStructureComponents\PageHeadComponent;
 
 /**
  * @var PageHeadComponent $this

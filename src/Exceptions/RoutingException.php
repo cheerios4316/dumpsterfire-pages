@@ -1,5 +1,5 @@
 <?php
 
-namespace DumpsterfireRouter\Exceptions;
+namespace DumpsterfirePages\Exceptions;
 
-class RoutingException extends DumpsterfireRouterException {}
+class RoutingException extends DumpsterfirePagesException {}

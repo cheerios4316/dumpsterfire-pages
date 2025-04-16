@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate\PageStructureComponents\HtmlPageSkeletonComponent;
+namespace DumpsterfirePages\PageTemplate\PageStructureComponents\HtmlPageSkeletonComponent;
 
-use DumpsterfireComponents\Component;
+use DumpsterfirePages\Component;
 
 class HtmlPageSkeletonComponent extends Component
 {

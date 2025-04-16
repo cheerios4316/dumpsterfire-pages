@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireComponents\AssetsManager\AssetObjects;
+namespace DumpsterfirePages\AssetsManager\AssetObjects;
 
-use DumpsterfireComponents\Interfaces\AssetInterface;
+use DumpsterfirePages\Interfaces\AssetInterface;
 
 abstract class BaseAsset implements AssetInterface
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace DumpsterfireComponents\AssetsManager;
+namespace DumpsterfirePages\AssetsManager;
 
 use DumpsterfireBase\Interfaces\LoggerInterface;
-use DumpsterfireComponents\Exceptions\AssetsException;
+use DumpsterfirePages\Exceptions\AssetsException;
 
 class DefaultDependencies
 {

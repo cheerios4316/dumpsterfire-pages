@@ -9,7 +9,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "DumpsterfireComponents\\": "src/"
+            "DumpsterfirePages\\": "src/"
         },
         "classmap": [
         "src/"

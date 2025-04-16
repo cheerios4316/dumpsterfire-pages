@@ -1,10 +1,10 @@
 <?php
 
-namespace DumpsterfireComponents;
+namespace DumpsterfirePages;
 
 use DumpsterfireBase\Container\Container;
-use DumpsterfireComponents\Interfaces\RendererInterface;
-use DumpsterfireComponents\Renderer\PageRenderer;
+use DumpsterfirePages\Interfaces\RendererInterface;
+use DumpsterfirePages\Renderer\PageRenderer;
 
 class PageComponent extends Component
 {

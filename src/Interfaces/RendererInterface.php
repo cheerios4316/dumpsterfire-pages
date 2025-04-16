@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireComponents\Interfaces;
+namespace DumpsterfirePages\Interfaces;
 
-use DumpsterfireComponents\Component;
+use DumpsterfirePages\Component;
 
 interface RendererInterface
 {

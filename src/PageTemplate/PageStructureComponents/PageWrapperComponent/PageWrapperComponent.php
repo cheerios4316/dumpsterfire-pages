@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate\PageStructureComponents\PageWrapperComponent;
+namespace DumpsterfirePages\PageTemplate\PageStructureComponents\PageWrapperComponent;
 
-use DumpsterfireComponents\Component;
+use DumpsterfirePages\Component;
 
 class PageWrapperComponent extends Component
 {

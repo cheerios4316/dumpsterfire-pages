@@ -1,13 +1,13 @@
 <?php
 
-namespace DumpsterfireComponents\PageTemplate;
+namespace DumpsterfirePages\PageTemplate;
 
 use DumpsterfireBase\Container\Container;
-use DumpsterfireComponents\Component;
-use DumpsterfireComponents\Exceptions\ComponentRendererException;
-use DumpsterfireComponents\PageComponent;
-use DumpsterfireComponents\PageTemplate\StaticComponent\StaticComponent;
-use DumpsterfireComponents\Renderer\ComponentRenderer;
+use DumpsterfirePages\Component;
+use DumpsterfirePages\Exceptions\ComponentRendererException;
+use DumpsterfirePages\PageComponent;
+use DumpsterfirePages\PageTemplate\StaticComponent\StaticComponent;
+use DumpsterfirePages\Renderer\ComponentRenderer;
 
 class PageTemplate
 {

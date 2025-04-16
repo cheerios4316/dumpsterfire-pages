@@ -1,13 +1,13 @@
 <?php
 
-namespace DumpsterfireRouter\Router;
+namespace DumpsterfirePages\Router;
 
 use DumpsterfireBase\Container\Container;
 use DumpsterfireBase\Interfaces\LoggerInterface;
-use DumpsterfireRouter\Exceptions\RoutingException;
-use DumpsterfireRouter\Interfaces\ControllerInterface;
-use DumpsterfireRouter\Interfaces\IControllerParams;
-use DumpsterfireRouter\Interfaces\RouterInterface;
+use DumpsterfirePages\Exceptions\RoutingException;
+use DumpsterfirePages\Interfaces\ControllerInterface;
+use DumpsterfirePages\Interfaces\IControllerParams;
+use DumpsterfirePages\Interfaces\RouterInterface;
 use Exception;
 use DumpsterfireBase\Interfaces\ILoggable;
 use Throwable;
