@@ -2,7 +2,7 @@
 
 namespace DumpsterfirePages\ComponentData;
 
-use DumpsterfireBase\Hydrator\BaseHydrator;
+use DumpsterfirePages\Hydrator\BaseHydrator;
 
 class ComponentDataObject extends BaseHydrator
 {

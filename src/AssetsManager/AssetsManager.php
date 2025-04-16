@@ -2,7 +2,7 @@
 
 namespace DumpsterfirePages\AssetsManager;
 
-use DumpsterfireBase\Container\Container;
+use DumpsterfirePages\Container\Container;
 use DumpsterfirePages\AssetsManager\AssetObjects\CssAsset;
 use DumpsterfirePages\AssetsManager\AssetObjects\JsAsset;
 use DumpsterfirePages\Interfaces\AssetInterface;

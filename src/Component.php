@@ -2,7 +2,7 @@
 
 namespace DumpsterfirePages;
 
-use DumpsterfireBase\Container\Container;
+use DumpsterfirePages\Container\Container;
 use DumpsterfirePages\Interfaces\IRenderable;
 use DumpsterfirePages\Interfaces\ISetup;
 use DumpsterfirePages\Interfaces\RendererInterface;

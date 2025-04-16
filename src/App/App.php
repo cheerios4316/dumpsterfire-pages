@@ -1,16 +1,16 @@
 <?php
 
-namespace DumpsterfireBase\App;
+namespace DumpsterfirePages\App;
 
-use DumpsterfireBase\Container\Container;
-use DumpsterfireBase\InitActions\DotEnvInit;
-use DumpsterfireBase\InitActions\WhoopsInit;
-use DumpsterfireBase\Interfaces\LoggerInterface;
+use DumpsterfirePages\Container\Container;
+use DumpsterfirePages\InitActions\DotEnvInit;
+use DumpsterfirePages\InitActions\WhoopsInit;
+use DumpsterfirePages\Interfaces\LoggerInterface;
 use DumpsterfirePages\Component;
 use DumpsterfirePages\PageTemplate\PageTemplate;
 use DumpsterfirePages\Interfaces\RouterInterface;
-use DumpsterfireBase\Interfaces\InitActionInterface;
-use DumpsterfireBase\Interfaces\ILoggable;
+use DumpsterfirePages\Interfaces\InitActionInterface;
+use DumpsterfirePages\Interfaces\ILoggable;
 
 class App implements ILoggable
 {

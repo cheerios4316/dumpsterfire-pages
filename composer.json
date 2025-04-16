@@ -15,15 +15,6 @@
         "src/"
     ]
     },
-    "require": {
-        "cheerios/dumpsterfire-base": "dev-main"
-    },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../../repos/dumpsterfire-base"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace DumpsterfireBase\Container;
-use DumpsterfireBase\Interfaces\LoggerInterface;
-use DumpsterfireBase\Interfaces\SingletonInterface;
+namespace DumpsterfirePages\Container;
+use DumpsterfirePages\Interfaces\LoggerInterface;
+use DumpsterfirePages\Interfaces\SingletonInterface;
 use ReflectionClass;
-use DumpsterfireBase\Interfaces\ILoggable;
+use DumpsterfirePages\Interfaces\ILoggable;
 
 /**
  * @template T

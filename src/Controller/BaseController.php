@@ -3,10 +3,10 @@
 namespace DumpsterfirePages\Controller;
 
 use DumpsterfirePages\Exceptions\ControllerException;
-use DumpsterfireBase\Interfaces\ILoggable;
+use DumpsterfirePages\Interfaces\ILoggable;
 use Throwable;
 use TypeError;
-use DumpsterfireBase\Interfaces\LoggerInterface;
+use DumpsterfirePages\Interfaces\LoggerInterface;
 
 abstract class BaseController implements ILoggable
 {

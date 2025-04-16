@@ -1,5 +1,5 @@
 <?php
 
-namespace DumpsterfireBase\Exceptions;
+namespace DumpsterfirePages\Exceptions;
 
-class ContainerException extends DumpsterfireBaseException {}
+class ContainerException extends DumpsterfirePagesException {}

@@ -1,7 +1,7 @@
 <?php
 
-namespace DumpsterfireBase\Container;
-use DumpsterfireBase\Exceptions\ContainerException;
+namespace DumpsterfirePages\Container;
+use DumpsterfirePages\Exceptions\ContainerException;
 use ReflectionClass;
 
 class DependencyResolver

@@ -2,7 +2,7 @@
 
 namespace DumpsterfirePages\Renderer;
 
-use DumpsterfireBase\Container\Container;
+use DumpsterfirePages\Container\Container;
 use DumpsterfirePages\AssetsManager\AssetsManager;
 use DumpsterfirePages\Component;
 use DumpsterfirePages\Exceptions\ComponentRendererException;

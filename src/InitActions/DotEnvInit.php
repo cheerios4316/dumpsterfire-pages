@@ -1,9 +1,9 @@
 <?php
 
-namespace DumpsterfireBase\InitActions;
+namespace DumpsterfirePages\InitActions;
 
 use Dotenv\Dotenv;
-use DumpsterfireBase\Interfaces\InitActionInterface;
+use DumpsterfirePages\Interfaces\InitActionInterface;
 
 class DotEnvInit implements InitActionInterface
 {

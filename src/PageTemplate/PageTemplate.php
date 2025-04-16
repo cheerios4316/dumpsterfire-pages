@@ -2,7 +2,7 @@
 
 namespace DumpsterfirePages\PageTemplate;
 
-use DumpsterfireBase\Container\Container;
+use DumpsterfirePages\Container\Container;
 use DumpsterfirePages\Component;
 use DumpsterfirePages\Exceptions\ComponentRendererException;
 use DumpsterfirePages\PageComponent;

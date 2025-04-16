@@ -2,8 +2,8 @@
 
 namespace DumpsterfirePages\ComponentData;
 
-use DumpsterfireBase\Container\Container;
-use DumpsterfireBase\Interfaces\SingletonInterface;
+use DumpsterfirePages\Container\Container;
+use DumpsterfirePages\Interfaces\SingletonInterface;
 use DumpsterfirePages\Component;
 use DumpsterfirePages\Renderer\ComponentPath\ComponentPath;
 

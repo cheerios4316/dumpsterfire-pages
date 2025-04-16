@@ -1,6 +1,6 @@
 <?php
 
-namespace DumpsterfireBase\Interfaces;
+namespace DumpsterfirePages\Interfaces;
 
 interface InitActionInterface
 {

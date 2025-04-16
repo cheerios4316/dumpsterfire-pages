@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireBase\InitActions;
+namespace DumpsterfirePages\InitActions;
 
-use DumpsterfireBase\Interfaces\InitActionInterface;
+use DumpsterfirePages\Interfaces\InitActionInterface;
 use Whoops\Handler\PrettyPageHandler;
 use Whoops\Run;
 

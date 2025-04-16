@@ -2,14 +2,14 @@
 
 namespace DumpsterfirePages\Router;
 
-use DumpsterfireBase\Container\Container;
-use DumpsterfireBase\Interfaces\LoggerInterface;
+use DumpsterfirePages\Container\Container;
+use DumpsterfirePages\Interfaces\LoggerInterface;
 use DumpsterfirePages\Exceptions\RoutingException;
 use DumpsterfirePages\Interfaces\ControllerInterface;
 use DumpsterfirePages\Interfaces\IControllerParams;
 use DumpsterfirePages\Interfaces\RouterInterface;
 use Exception;
-use DumpsterfireBase\Interfaces\ILoggable;
+use DumpsterfirePages\Interfaces\ILoggable;
 use Throwable;
 
 class DumpsterfireRouter implements RouterInterface, ILoggable

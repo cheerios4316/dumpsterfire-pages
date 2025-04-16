@@ -2,7 +2,7 @@
 
 namespace DumpsterfirePages\AssetsManager;
 
-use DumpsterfireBase\Interfaces\LoggerInterface;
+use DumpsterfirePages\Interfaces\LoggerInterface;
 use DumpsterfirePages\Exceptions\AssetsException;
 
 class DefaultDependencies
@@ -28,7 +28,7 @@ class DefaultDependencies
 
     /**
      * Add a logger to log errors
-     * @todo move this into some class in DumpsterfireBase
+     * @todo move this into some class in DumpsterfirePages
      * @param LoggerInterface $logger
      * @return void
      */

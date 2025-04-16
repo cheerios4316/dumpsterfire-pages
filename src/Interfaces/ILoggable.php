@@ -1,8 +1,8 @@
 <?php
 
-namespace DumpsterfireBase\Interfaces;
+namespace DumpsterfirePages\Interfaces;
 
-use DumpsterfireBase\Interfaces\LoggerInterface;
+use DumpsterfirePages\Interfaces\LoggerInterface;
 
 interface ILoggable {
     public function setLogger(LoggerInterface $loggerInterface): self;

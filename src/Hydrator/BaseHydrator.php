@@ -1,6 +1,6 @@
 <?php
 
-namespace DumpsterfireBase\Hydrator;
+namespace DumpsterfirePages\Hydrator;
 
 class BaseHydrator
 {
