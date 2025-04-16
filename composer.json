@@ -1,6 +1,6 @@
 {
-    "name": "cheerios/dumpsterfire-components",
-    "description": "Components for Dumpsterfire SDK",
+    "name": "cheerios/dumpsterfire-pages",
+    "description": "Pages for Dumpsterfire SDK",
     "type": "library",
     "authors": [
         {

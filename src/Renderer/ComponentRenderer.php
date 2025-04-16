@@ -1,13 +1,13 @@
 <?php
 
-namespace DumpsterfireComponents\Renderer;
+namespace DumpsterfirePages\Renderer;
 
-use DumpsterfireComponents\AssetsManager\AssetsManager;
-use DumpsterfireComponents\Component;
-use DumpsterfireComponents\ComponentData\ComponentDataManager;
-use DumpsterfireComponents\ComponentData\ComponentDataObject;
-use DumpsterfireComponents\Exceptions\ComponentRendererException;
-use DumpsterfireComponents\Interfaces\RendererInterface;
+use DumpsterfirePages\AssetsManager\AssetsManager;
+use DumpsterfirePages\Component;
+use DumpsterfirePages\ComponentData\ComponentDataManager;
+use DumpsterfirePages\ComponentData\ComponentDataObject;
+use DumpsterfirePages\Exceptions\ComponentRendererException;
+use DumpsterfirePages\Interfaces\RendererInterface;
 
 class ComponentRenderer implements RendererInterface
 {

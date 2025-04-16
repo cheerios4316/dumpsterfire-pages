@@ -1,6 +1,6 @@
 <?php
 
-namespace DumpsterfireComponents\AssetsManager\AssetObjects;
+namespace DumpsterfirePages\AssetsManager\AssetObjects;
 
 class JsAsset extends BaseAsset
 {
