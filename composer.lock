@@ -1,0 +1,49 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "9d6b37de5bd471e1a34584f73c40c7e3",
+    "packages": [
+        {
+            "name": "cheerios/dumpsterfire-base",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "../dumpsterfire-base",
+                "reference": "1ca1a5f9cf98a3c459b8c300d23d7ecc6ad4852a"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DumpsterfireBase\\": "src/"
+                },
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "authors": [
+                {
+                    "name": "Cheerios4316"
+                }
+            ],
+            "description": "Base for Dumpsterfire SDK",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "cheerios/dumpsterfire-base": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
+}
