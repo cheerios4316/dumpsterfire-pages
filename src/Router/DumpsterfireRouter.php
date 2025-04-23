@@ -128,7 +128,7 @@ class DumpsterfireRouter implements RouterInterface, ILoggable
             preg_match($pattern, $route, $matches);
 
             if (!empty($matches) && is_array($matches) && !empty($matches[0])) {
-                $controller = Container::getInstance()->create($controller);
+                $controller = $this->container->create($controller);
 
                 if($controller instanceof IControllerParams) {
                     $controller->setParams($matches);
