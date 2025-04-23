@@ -19,10 +19,7 @@ class PageComponent extends Component
 
     protected ?Component $footerComponent = null;
 
-    protected function getComponentRenderer(): RendererInterface
-    {
-        return Container::getInstance()->create(PageRenderer::class);
-    }
+    protected string $defaultRenderer = PageRenderer::class;
 
     public function getMeta(): array
     {
