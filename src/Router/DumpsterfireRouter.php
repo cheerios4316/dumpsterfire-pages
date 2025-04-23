@@ -46,6 +46,11 @@ class DumpsterfireRouter implements RouterInterface, ILoggable
         $this->container = $container;
     }
 
+    /**
+     * @param string $route
+     * @return ControllerInterface
+     * @throws ControllerException
+     */
     public function getControllerFromRoute(string $route): ControllerInterface
     {
         try {
