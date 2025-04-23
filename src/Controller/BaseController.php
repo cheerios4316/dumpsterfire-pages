@@ -3,12 +3,13 @@
 namespace DumpsterfirePages\Controller;
 
 use DumpsterfirePages\Exceptions\ControllerException;
+use DumpsterfirePages\Interfaces\ControllerInterface;
 use DumpsterfirePages\Interfaces\ILoggable;
 use Throwable;
 use TypeError;
 use DumpsterfirePages\Interfaces\LoggerInterface;
 
-abstract class BaseController implements ILoggable
+abstract class BaseController implements ILoggable, ControllerInterface
 {
     protected array $rawParams = [];
 
