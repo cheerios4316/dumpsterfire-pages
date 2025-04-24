@@ -15,7 +15,7 @@ class DefaultDependencies
             '/public/dist/bundle.js',
         ],
         'css' => [
-            '/public/dist/tailwind.css' //@todo refactor to use bundled 
+            '/public/dist/bundle.css',
         ]
     ];
 

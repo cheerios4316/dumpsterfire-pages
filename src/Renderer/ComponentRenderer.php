@@ -35,24 +35,6 @@ class ComponentRenderer implements RendererInterface
     {
         $componentData = $this->getComponentData();
 
-        //$js = $componentData->getJsPath();
-        $css = $componentData->getCssPath();
-
-        /**
-         * @deprecated commented out for now, will be removed. unnecessary since we now use ts and bundling instead of
-         * serving individual js files.
-         */
-        /*if($componentData->hasFile($_SERVER['DOCUMENT_ROOT'] . DIRECTORY_SEPARATOR . $js)) {
-            $this->assetsManager->loadJs($js);
-        }*/
-
-        /**
-         * @todo not working. easier to fix by implementing bundling for css as well, will fix soon
-         */
-        if($componentData->hasFile($css)) {
-            $this->assetsManager->loadCss($css);
-        }
-
         return $this->getViewContent($componentData->getViewPath());
     }
 
