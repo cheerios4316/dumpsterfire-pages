@@ -90,6 +90,7 @@ abstract class Component implements IRenderable
 
     protected function getComponentRenderer(): RendererInterface
     {
+        // istanced here to avoid this in constructor
         return Container::getInstance()->create(ComponentRenderer::class);
     }
 }
