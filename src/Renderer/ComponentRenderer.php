@@ -31,7 +31,7 @@ class ComponentRenderer implements RendererInterface
      * @return string
      * @throws ComponentRendererException
      */
-    public function getHtmlContent(): string
+    public function getContent(): string
     {
         $componentData = $this->getComponentData();
 

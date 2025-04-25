@@ -2,11 +2,10 @@
 
 namespace DumpsterfirePages;
 
-use DumpsterfirePages\Container\Container;
-use DumpsterfirePages\Interfaces\RendererInterface;
+use DumpsterfirePages\Interfaces\PageInterface;
 use DumpsterfirePages\Renderer\PageRenderer;
 
-class PageComponent extends Component
+class PageComponent extends Component implements PageInterface
 {
     /**
      * @var array<string, string> $meta

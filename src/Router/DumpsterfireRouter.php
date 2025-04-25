@@ -125,6 +125,7 @@ class DumpsterfireRouter implements RouterInterface, ILoggable
             $pattern = preg_replace('/\{(\w+)\}/', '(?P<$1>[^/]+)', $path);
             $pattern = '#^' . str_replace('\\/', '/', $pattern) . '\/?$#';
 
+
             preg_match($pattern, $route, $matches);
 
             if (!empty($matches) && is_array($matches) && !empty($matches[0])) {

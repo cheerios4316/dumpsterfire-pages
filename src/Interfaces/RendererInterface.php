@@ -11,5 +11,5 @@ interface RendererInterface
      * @return self
      */
     public function loadComponent(Component $component): self;
-    public function getHtmlContent(): string;
+    public function getContent(): string;
 }

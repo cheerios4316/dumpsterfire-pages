@@ -44,7 +44,7 @@ abstract class Component implements IRenderable
 
         $this->preRender();
 
-        return $this->getComponentRenderer()->loadComponent($this)->getHtmlContent();
+        return $this->getComponentRenderer()->loadComponent($this)->getContent();
     }
 
     /**

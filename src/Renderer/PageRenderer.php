@@ -50,7 +50,7 @@ class PageRenderer implements RendererInterface
      * @return string
      * @throws PageRendererException|ComponentRendererException
      */
-    public function getHtmlContent(): string
+    public function getContent(): string
     {
         $this->assetsManager->loadDefaults();
         if(!$this->component) {
