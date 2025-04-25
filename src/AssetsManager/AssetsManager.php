@@ -30,7 +30,7 @@ class AssetsManager
             $css[] = $container->create(CssAsset::class)->setPath($path);
         }
 
-        return array_merge($js, $css);
+        return array_merge($css, $js);
     }
 
     public function loadDefaults(): void

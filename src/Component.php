@@ -17,6 +17,12 @@ abstract class Component implements IRenderable
     protected bool $enabled = true;
 
     /**
+     * Default renderer for the component.
+     * @var class-string<RendererInterface>
+     */
+    protected string $defaultRenderer = ComponentRenderer::class;
+
+    /**
      * Prints the HTML content of a component.
      * @return void
      */
@@ -77,20 +83,29 @@ abstract class Component implements IRenderable
 
     /**
      * Runs the setup method if the component implements the ISetup interface.
-     * May be subject to modifications.
      *
      * @return void
      */
-    private function preRender(): void
+    protected function preRender(): void
     {
         if ($this instanceof ISetup) {
             $this->setup();
         }
     }
 
-    protected function getComponentRenderer(): RendererInterface
+    /**
+     * Returns the renderer the component needs to use.
+     * Defaults to ComponentRenderer.
+     *
+     * @param class-string<RendererInterface>|null $className
+     * @return RendererInterface
+     */
+    protected function getComponentRenderer(?string $className = null): RendererInterface
     {
-        // istanced here to avoid this in constructor
-        return Container::getInstance()->create(ComponentRenderer::class);
+        if ($className) {
+            return Container::getInstance()->create($className);
+        }
+
+        return Container::getInstance()->create($this->defaultRenderer);
     }
 }

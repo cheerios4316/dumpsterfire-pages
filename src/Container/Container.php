@@ -1,6 +1,7 @@
 <?php
 
 namespace DumpsterfirePages\Container;
+use DumpsterfirePages\Interfaces\ContainerInterface;
 use DumpsterfirePages\Interfaces\LoggerInterface;
 use DumpsterfirePages\Interfaces\SingletonInterface;
 use ReflectionClass;
@@ -9,7 +10,7 @@ use DumpsterfirePages\Interfaces\ILoggable;
 /**
  * @template T
  */
-class Container implements SingletonInterface
+class Container implements SingletonInterface, ContainerInterface
 {
     protected static ?Container $instance = null;
 

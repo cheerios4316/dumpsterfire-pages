@@ -7,10 +7,12 @@ use DumpsterfirePages\InitActions\DotEnvInit;
 use DumpsterfirePages\InitActions\WhoopsInit;
 use DumpsterfirePages\Interfaces\LoggerInterface;
 use DumpsterfirePages\Component;
+use DumpsterfirePages\PageComponent;
 use DumpsterfirePages\PageTemplate\PageTemplate;
 use DumpsterfirePages\Interfaces\RouterInterface;
 use DumpsterfirePages\Interfaces\InitActionInterface;
 use DumpsterfirePages\Interfaces\ILoggable;
+use DumpsterfirePages\Router\DumpsterfireRouter;
 
 class App implements ILoggable
 {
@@ -23,11 +25,26 @@ class App implements ILoggable
         WhoopsInit::class,
     ];
 
+    /**
+     * @var PageComponent|null
+     */
+    protected ?PageComponent $page404Component = null;
+
+    /** @var RouterInterface|null  */
     protected ?RouterInterface $router = null;
 
+    /**
+     * @param RouterInterface $routerInterface
+     * @return $this
+     */
     public function setRouter(RouterInterface $routerInterface): self
     {
         $this->router = $routerInterface;
+
+        if($this->router instanceof DumpsterfireRouter) {
+            $this->router->set404PageComponent($this->page404Component);
+        }
+
         return $this;
     }
 
@@ -56,9 +73,20 @@ class App implements ILoggable
         return $this;
     }
 
-    public function setLogger(LoggerInterface $logger): self
+    /**
+     * @param LoggerInterface $loggerInterface
+     * @return $this
+     */
+    public function setLogger(LoggerInterface $loggerInterface): self
     {
-        Container::setLogger($logger);
+        Container::setLogger($loggerInterface);
+        return $this;
+    }
+
+    public function set404PageComponent(PageComponent $pageComponent): self
+    {
+        $this->page404Component = $pageComponent;
+
         return $this;
     }
 

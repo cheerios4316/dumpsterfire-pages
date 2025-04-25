@@ -1,8 +1,10 @@
 import $ from "jquery";
+import '@root/repos/dumpsterfire-pages/src/js/ImportStyle';
 
+// @todo move js context import into something along the lines of ImportStyle.ts
 // @ts-ignore
-const context = require.context("/public/js", true, /\.js$/);
-context.keys().forEach(context);
+const contextJs = require.context("/public/js", true, /\.js$/);
+contextJs.keys().forEach(contextJs);
 
 function initializeComponents(container = document) {
   $(container)
