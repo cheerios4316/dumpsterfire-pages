@@ -1,5 +1,5 @@
 import $ from "jquery";
-import '@root/repos/dumpsterfire-pages/src/js/ImportStyle';
+import "@root/repos/dumpsterfire-pages/src/js/ImportStyle";
 
 // @todo move js context import into something along the lines of ImportStyle.ts
 // @ts-ignore
@@ -45,15 +45,18 @@ function getComponentName(element: HTMLElement) {
 
 const observer = new MutationObserver((mutationsList) => {
   for (const mutation of mutationsList) {
-    if (mutation.type === "childList") {
-      mutation.addedNodes.forEach((node) => {
-        if (node.nodeType === 1) {
-          // element node
-          initializeComponents();
-        }
-      });
+    if (mutation.type !== "childList") {
+      continue;
     }
+
+    mutation.addedNodes.forEach((node) => {
+      // element node
+      if (node.nodeType === 1) {
+        initializeComponents();
+      }
+    });
   }
+  
 });
 
 // Initialize components on DOMContentLoaded
