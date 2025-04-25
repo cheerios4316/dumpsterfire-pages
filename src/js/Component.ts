@@ -1,20 +1,31 @@
 export class Component {
-    private $element: any;
-    constructor($element: any) {
+    protected $element: any;
+
+    constructor($element: JQuery<HTMLElement>) {
         this.$element = $element;
-        this.setData();
-        this.setDependencies();
+
+        this.setData && this.setData();
+
         this.init();
     }
 
     init() {
-        this.bindEvents();
+        this.defaultEvents();
+        this.bindEvents && this.bindEvents();
+
         this.$element.data('instance', this)
     }
 
-    setDependencies() {}
+    protected setData?(): void;
 
-    setData() {}
+    protected onClick?(e: JQuery.ClickEvent): void;
 
-    bindEvents() {}
+    protected bindEvents?(): void;
+
+
+    private defaultEvents() {
+        this.$element.on('click', (e: JQuery.ClickEvent) => {
+            this.onClick && this.onClick(e);
+        })
+    }
 }
