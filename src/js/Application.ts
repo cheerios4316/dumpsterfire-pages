@@ -1,5 +1,5 @@
 import $ from "jquery";
-import "@root/repos/dumpsterfire-pages/src/js/ImportStyle";
+import "@root/ImportStyle";
 
 // @todo move js context import into something along the lines of ImportStyle.ts
 // @ts-ignore
