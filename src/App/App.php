@@ -41,7 +41,7 @@ class App implements ILoggable
     {
         $this->router = $routerInterface;
 
-        if($this->router instanceof DumpsterfireRouter) {
+        if($this->page404Component && $this->router instanceof DumpsterfireRouter) {
             $this->router->set404PageComponent($this->page404Component);
         }
 
