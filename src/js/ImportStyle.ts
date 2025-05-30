@@ -4,7 +4,7 @@ import "@root/public/dist/tailwind.css";
 const userComponentContext = require.context("@root/src", true, /\.css$/);
 
 // @ts-ignore
-const frameworkComponentContext = require.context("@root/repos/dumpsterfire-pages/src", true, /\.css$/);
+const frameworkComponentContext = require.context("@vendor/dumpsterfire-pages/src", true, /\.css$/);
 
 const contexts = [
     userComponentContext, frameworkComponentContext
