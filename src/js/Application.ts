@@ -1,5 +1,5 @@
 import $ from "jquery";
-import "@root/public/js/ImportStyle";
+import "@compiled/ImportStyle";
 
 // @todo move js context import into something along the lines of ImportStyle.ts
 // @ts-ignore
