@@ -52,7 +52,7 @@ class App implements ILoggable
     {
         $request = $_SERVER;
 
-        $requestUri = $request['REQUEST_URI'];
+        $requestUri = $request['REDIRECT_URL'];
 
         if($this->router) {
             $controller = $this->router->getControllerFromRoute($requestUri);
