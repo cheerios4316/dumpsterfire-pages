@@ -2,19 +2,70 @@
 
 namespace DumpsterfirePages\Database;
 
+use DumpsterfirePages\Container\Container;
 use ReflectionClass;
 use ReflectionProperty;
 
 abstract class BaseObject extends DatabaseConnection
 {
-    private array $fieldList = [];
-    private string $primaryName = "";
+    protected string $tableName = "";
+    protected array $fieldList = [];
+    protected string $primaryName = "";
 
     public function __construct()
     {
         parent::__construct();
 
         $this->getFieldList();
+    }
+
+    public static function create(array $data): static
+    {
+        $object = static::getNewObject();
+
+        $fieldList = $object->fieldList;
+
+        foreach($data as $key => $val) {
+            if(!property_exists($object, $key)) {
+                continue;
+            }
+
+            if(!in_array($key, $fieldList)) {
+                continue;
+            }
+
+            $object->$key = $val;
+        }
+
+        return $object;
+    }
+
+    public static function searchByPrimary($value): ?static
+    {
+        $object = static::getNewObject();
+
+        $fieldList = $object->fieldList;
+        $primary = $object->primaryName;
+        $tableName = $object->tableName;
+
+        $query = "SELECT * FROM " . $tableName . " WHERE " . $primary . " = :value";
+        
+        $params = [
+            "value" => $value
+        ];
+
+        $data = self::$connection->query($query, $params);
+
+        if(empty($data)) {
+            return null;
+        }
+
+        return static::create($data);
+    }
+
+    protected static function getNewObject(): static
+    {
+        return Container::getInstance()->create(static::class);
     }
 
     protected function getFieldList(): array
