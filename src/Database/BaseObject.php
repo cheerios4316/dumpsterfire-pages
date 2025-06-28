@@ -19,6 +19,16 @@ abstract class BaseObject extends DatabaseConnection
         $this->getFieldList();
     }
 
+    public function getArray(): array
+    {
+        $arr = [];
+        foreach($this->fieldList as $field) {
+            $arr[$field] = $this->$field;
+        }
+
+        return $arr;
+    }
+
     public static function create(array $data): static
     {
         $object = static::getNewObject();
