@@ -70,7 +70,7 @@ abstract class BaseObject extends DatabaseConnection
             return null;
         }
 
-        return static::create($data);
+        return static::create($data[0]);
     }
 
     protected static function getNewObject(): static
