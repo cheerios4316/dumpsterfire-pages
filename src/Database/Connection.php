@@ -16,7 +16,7 @@ class Connection
     protected static string $dsnTemplate = "mysql:host={host};dbname={dbname};port={port}";
     protected ?PDO $connection = null;
 
-    public function connect(string $host, string $dbname, string $username, int $port, string $password): PDO
+    public function connect(string $host, string $dbname, int $port, string $username, string $password): PDO
     {
         if (!is_null($this->connection)) {
             throw new DatabaseException("Connection error: this instance of Connection is already connected to a database. Use ->disconnect().");
