@@ -68,7 +68,7 @@ abstract class BaseObject extends DatabaseConnection
     {
         $extra = trim($extra);
         $extra = rtrim($extra, ';');
-        $extra = rtrim('*/');
+        $extra = rtrim($extra, '*/');
 
         $values = explode(' ', $extra);
 
