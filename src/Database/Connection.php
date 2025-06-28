@@ -10,6 +10,8 @@ class Connection
 {
     /**
      * @column stronzo
+     * @other param
+     * @var string $dsnTemplate
      */
     protected static string $dsnTemplate = "mysql:host={host};dbname={dbname};port={port}";
     protected ?PDO $connection = null;

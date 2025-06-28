@@ -3,6 +3,8 @@
 namespace DumpsterfirePages\App;
 
 use DumpsterfirePages\Container\Container;
+use DumpsterfirePages\Database\Connection;
+use DumpsterfirePages\Database\DatabaseConnection;
 use DumpsterfirePages\InitActions\DotEnvInit;
 use DumpsterfirePages\InitActions\WhoopsInit;
 use DumpsterfirePages\Interfaces\LoggerInterface;
@@ -59,6 +61,19 @@ class App implements ILoggable
             $controller->getResult()->render();
         }
 
+        return $this;
+    }
+
+    public function connectDatabase(string $host, string $dbname, int $port, string $username, string $password): self
+    {
+        $container = Container::getInstance();
+        $connection = $container->create(Connection::class);
+
+        /** @var Connection $connection */
+        $connection->connect($host, $dbname, $port, $username, $password);
+
+        DatabaseConnection::setConnection($connection);
+        
         return $this;
     }
 
