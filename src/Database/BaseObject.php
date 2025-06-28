@@ -51,7 +51,7 @@ abstract class BaseObject extends DatabaseConnection
             return false;
         }
 
-        preg_match('/@column(?<extra>.*?)\n/', $doc, $matches);
+        preg_match('/@column (?<extra>.*?)(?:\*\/)?\n?$/', $doc, $matches);
 
         if(count($matches) < 1) {
             return false;
@@ -68,6 +68,7 @@ abstract class BaseObject extends DatabaseConnection
     {
         $extra = trim($extra);
         $extra = rtrim($extra, ';');
+        $extra = rtrim('*/');
 
         $values = explode(' ', $extra);
 
