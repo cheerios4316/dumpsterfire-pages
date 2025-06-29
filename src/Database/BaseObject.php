@@ -3,6 +3,7 @@
 namespace DumpsterfirePages\Database;
 
 use DumpsterfirePages\Container\Container;
+use DumpsterfirePages\Database\ObjectPropertyHelper\ObjectPropertyHelper;
 use DumpsterfirePages\Exceptions\BaseObjectException;
 use ReflectionClass;
 use ReflectionProperty;
@@ -14,11 +15,15 @@ abstract class BaseObject extends DatabaseConnection
     // @todo custom property types
     protected string $primaryName = "";
 
-    public function __construct()
+    protected ObjectPropertyHelper $objectPropertyHelper;
+
+    public function __construct(ObjectPropertyHelper $objectPropertyHelper)
     {
         parent::__construct();
 
         $this->getFieldList();
+
+        $this->objectPropertyHelper = $objectPropertyHelper;
     }
 
     public function __get($property)
@@ -92,7 +97,6 @@ abstract class BaseObject extends DatabaseConnection
     {
         $object = static::getNewObject();
 
-        $primary = $object->primaryName;
         $tableName = $object->tableName;
 
         $query = "SELECT * FROM " . $tableName;
@@ -116,13 +120,13 @@ abstract class BaseObject extends DatabaseConnection
     protected function getFieldList(): array
     {
         if(empty($this->fieldList)) {
-            $this->fieldList = $this->fetchFieldList();
+            $this->fieldList = $this->fetchColumnList();
         }
 
         return $this->fieldList;
     }
 
-    private function fetchFieldList(): array
+    private function fetchColumnList(): array
     {
         $reflection = new ReflectionClass($this);
         $properties = $reflection->getProperties();
@@ -131,58 +135,17 @@ abstract class BaseObject extends DatabaseConnection
 
         /** @var \ReflectionProperty $prop */
         foreach($properties as $prop) {
-            if($this->isColumn($prop)) {
+            $propertyData = $this->objectPropertyHelper->getPropertyData($prop);
+
+            if($propertyData->isColumn()) {
                 $list[] = $prop->getName();
+            }
+
+            if($propertyData->isPrimary()) {
+                $this->primaryName = $prop->getName();
             }
         }
 
         return $list;
-    }
-
-    private function isPropertyType(ReflectionProperty $property, string $type): bool
-    {
-        $doc = $property->getDocComment();
-
-        if(!$doc) {
-            return false;
-        }
-
-        preg_match('/@' . $type . ' (?<extra>.*?)(?:\*\/)?\n?$/', $doc, $matches);
-
-        if(count($matches) < 1) {
-            return false;
-        }
-            
-        if(isset($matches['extra'])) {
-            $this->parseExtra($matches['extra'], $property);
-        }
-
-        return true;
-    }
-
-    private function isColumn(ReflectionProperty $property): bool
-    {
-        return $this->isPropertyType($property, "column");
-    }
-
-    private function isProperty(ReflectionProperty $property): bool
-    {
-        return $this->isPropertyType($property, "property");
-    }
-
-    private function parseExtra(string $extra, ReflectionProperty $property): void
-    {
-        $extra = trim($extra);
-        $extra = rtrim($extra, ';');
-        $extra = rtrim($extra, '*/');
-
-        $values = explode(' ', $extra);
-
-        foreach($values as $val) {
-            switch($val) {
-                case 'primary':
-                    $this->primaryName = $property->getName();
-            }
-        }
     }
 }
