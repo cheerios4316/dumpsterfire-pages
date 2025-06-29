@@ -54,7 +54,6 @@ abstract class BaseObject extends DatabaseConnection
     {
         $object = static::getNewObject();
 
-        $fieldList = $object->fieldList;
         $primary = $object->primaryName;
         $tableName = $object->tableName;
 
@@ -71,6 +70,16 @@ abstract class BaseObject extends DatabaseConnection
         }
 
         return static::create($data[0]);
+    }
+
+    public static function customSearch(SearchCondition $search): array
+    {
+        $query = $search->getString();
+        $params = $search->getParams();
+
+        $data = self::$connection->query($query, $params);
+
+        return $data;
     }
 
     protected static function getNewObject(): static
