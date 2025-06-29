@@ -19,6 +19,7 @@ class ObjectPropertyHelper
     public function getPropertyData(ReflectionProperty $property): ObjectPropertyData
     {
         $name = $property->getName();
+
         if(isset(self::$cache[$name])) {
             return self::$cache[$name];
         }
@@ -32,6 +33,8 @@ class ObjectPropertyHelper
         if(isset(self::$extra[$name])) {
             $object = $this->parseExtra(self::$extra[$name], $property, $object);
         }
+
+        self::$cache[$name] = $object;
 
         return $object;
     }
