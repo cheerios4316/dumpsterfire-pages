@@ -72,6 +72,22 @@ abstract class BaseObject extends DatabaseConnection
         return static::create($data[0]);
     }
 
+    public static function getAll(): array
+    {
+        $object = static::getNewObject();
+
+        $primary = $object->primaryName;
+        $tableName = $object->tableName;
+
+        $query = "SELECT * FROM " . $tableName;
+
+        $data = self::$connection->query($query);
+
+        return array_map(function($elem){
+            return static::create($elem);
+        }, $data);
+    }
+
     protected static function getNewObject(): static
     {
         return Container::getInstance()->create(static::class);
