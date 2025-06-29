@@ -83,7 +83,12 @@ abstract class BaseObject extends DatabaseConnection
         return static::create($data[0]);
     }
 
-    public static function getAll(): array
+    /**
+     * Summary of getAll
+     * @param array{column: string, sort: 'ASC'|'DESC'}|[] $sort
+     * @return BaseObject[]
+     */
+    public static function getAll(array $sort = []): array
     {
         $object = static::getNewObject();
 
@@ -91,6 +96,10 @@ abstract class BaseObject extends DatabaseConnection
         $tableName = $object->tableName;
 
         $query = "SELECT * FROM " . $tableName;
+
+        if(!empty($sort)) {
+            $query .= (' ORDER BY ' . $sort['column'] . ' ' . $sort['sort']);
+        }
 
         $data = self::$connection->query($query);
 
