@@ -15,15 +15,11 @@ abstract class BaseObject extends DatabaseConnection
     // @todo custom property types
     protected string $primaryName = "";
 
-    protected ObjectPropertyHelper $objectPropertyHelper;
-
-    public function __construct(ObjectPropertyHelper $objectPropertyHelper)
+    public function __construct()
     {
         parent::__construct();
 
         $this->getFieldList();
-
-        $this->objectPropertyHelper = $objectPropertyHelper;
     }
 
     public function __get($property)
@@ -133,9 +129,11 @@ abstract class BaseObject extends DatabaseConnection
 
         $list = [];
 
+        $objectPropertyHelper = Container::getInstance()->create(ObjectPropertyHelper::class);
+
         /** @var \ReflectionProperty $prop */
         foreach($properties as $prop) {
-            $propertyData = $this->objectPropertyHelper->getPropertyData($prop);
+            $propertyData = $objectPropertyHelper->getPropertyData($prop);
 
             if($propertyData->isColumn()) {
                 $list[] = $prop->getName();
