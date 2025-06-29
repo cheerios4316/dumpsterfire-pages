@@ -14,6 +14,8 @@ class Container implements SingletonInterface, ContainerInterface
 {
     protected static ?Container $instance = null;
 
+    protected static bool $suppress = false;
+
     protected DependencyResolver $dependencyResolver;
 
     protected static ?LoggerInterface $logger = null;
@@ -51,7 +53,11 @@ class Container implements SingletonInterface, ContainerInterface
             if(self::$logger) {
                 self::$logger->log($e->getMessage());
             }
-            return null;
+            if(self::$suppress) {
+                return null;
+            }
+
+            throw $e;
         }
     }
 
@@ -72,5 +78,10 @@ class Container implements SingletonInterface, ContainerInterface
     public static function setLogger(LoggerInterface $loggerInterface): void
     {
         self::$logger = $loggerInterface;
+    }
+
+    public static function setSuppress(bool $suppress): void
+    {
+        self::$suppress = $suppress;
     }
 }
