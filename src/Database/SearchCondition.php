@@ -4,6 +4,9 @@ namespace DumpsterfirePages\Database;
 
 use DumpsterfirePages\Container\Container;
 
+/**
+ * @deprecated NOT FULLY IMPLEMENTED. DO NOT USE. UNSAFE AND NOT WORKING
+ */
 class SearchCondition
 {
     public const AND = "AND";

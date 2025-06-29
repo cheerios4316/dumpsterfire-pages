@@ -72,16 +72,6 @@ abstract class BaseObject extends DatabaseConnection
         return static::create($data[0]);
     }
 
-    public static function customSearch(SearchCondition $search): array
-    {
-        $query = $search->getString();
-        $params = $search->getParams();
-
-        $data = self::$connection->query($query, $params);
-
-        return $data;
-    }
-
     protected static function getNewObject(): static
     {
         return Container::getInstance()->create(static::class);
