@@ -29,8 +29,8 @@ class ObjectPropertyHelper
             $object->setIsColumn(true);
         }
 
-        if(!empty($extra = self::$extra[$name])) {
-            $object = $this->parseExtra($extra, $property, $object);
+        if(isset(self::$extra[$name])) {
+            $object = $this->parseExtra(self::$extra[$name], $property, $object);
         }
 
         return $object;
