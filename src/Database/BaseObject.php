@@ -3,6 +3,7 @@
 namespace DumpsterfirePages\Database;
 
 use DumpsterfirePages\Container\Container;
+use DumpsterfirePages\Exceptions\BaseObjectException;
 use ReflectionClass;
 use ReflectionProperty;
 
@@ -17,6 +18,15 @@ abstract class BaseObject extends DatabaseConnection
         parent::__construct();
 
         $this->getFieldList();
+    }
+
+    public function __get($property)
+    {
+        if(!in_array($property, $this->fieldList)) {
+            throw new BaseObjectException("Cannot access '$property': not a column.");
+        }
+
+        return $this->$property;
     }
 
     public function getArray(): array
