@@ -11,6 +11,7 @@ abstract class BaseObject extends DatabaseConnection
 {
     protected string $tableName = "";
     protected array $fieldList = [];
+    // @todo custom property types
     protected string $primaryName = "";
 
     public function __construct()
@@ -129,7 +130,7 @@ abstract class BaseObject extends DatabaseConnection
         return $list;
     }
 
-    private function isColumn(ReflectionProperty $property): bool
+    private function isPropertyType(ReflectionProperty $property, string $type): bool
     {
         $doc = $property->getDocComment();
 
@@ -137,7 +138,7 @@ abstract class BaseObject extends DatabaseConnection
             return false;
         }
 
-        preg_match('/@column (?<extra>.*?)(?:\*\/)?\n?$/', $doc, $matches);
+        preg_match('/@' . $type . ' (?<extra>.*?)(?:\*\/)?\n?$/', $doc, $matches);
 
         if(count($matches) < 1) {
             return false;
@@ -148,6 +149,16 @@ abstract class BaseObject extends DatabaseConnection
         }
 
         return true;
+    }
+
+    private function isColumn(ReflectionProperty $property): bool
+    {
+        return $this->isPropertyType($property, "column");
+    }
+
+    private function isProperty(ReflectionProperty $property): bool
+    {
+        return $this->isPropertyType($property, "property");
     }
 
     private function parseExtra(string $extra, ReflectionProperty $property): void
