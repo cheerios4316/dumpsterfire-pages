@@ -147,8 +147,9 @@ class App implements ILoggable
         return $this;
     }
 
+    // @todo refactor to use some Config object instead of relying on setInitActions
     public static function new(): self
     {
-        return Container::getInstance()->create(self::class)->useDefaultInitActions();
+        return Container::getInstance()->create(App::class)->useDefaultInitActions()->runInitActions();
     }
 }
