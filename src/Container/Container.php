@@ -20,6 +20,9 @@ class Container implements SingletonInterface, ContainerInterface
 
     protected static ?LoggerInterface $logger = null;
 
+    /** @var array<class-string, object> $instances */
+    protected array $instances = [];
+
     private function __construct(DependencyResolver $dependencyResolver)
     {
         $this->dependencyResolver = $dependencyResolver;
@@ -59,6 +62,59 @@ class Container implements SingletonInterface, ContainerInterface
 
             throw $e;
         }
+    }
+
+    /**
+     * Gets a cached instance of a class
+     *
+     * @param class-string<T> $class
+     * @param bool $new 
+     * @param bool $overwriteExisting
+     * @return T|null
+     */
+    public function get(string $class, bool $new = false, bool $overwriteExisting = false)
+    {
+        if($new) {
+            $instance = $this->create($class);
+
+            if($overwriteExisting) {
+                $this->instances[$class] = $instance;
+            }
+
+            return $instance;
+        }
+
+        if(!isset($this->instances[$class])) {
+            $this->instances[$class] = $this->create($class);
+        }
+
+        return $this->instances[$class];
+    }
+
+    /**
+     * Returns true if the container has a cached instance of the class
+     * 
+     * @param class-string $class
+     * @return bool
+     */
+    public function has(string $class): bool
+    {
+        return isset($this->instances[$class]);
+    }
+
+    /**
+     * If present, removes the cached instance from memory
+     * 
+     * @param class-string $class
+     * @return self
+     */
+    public function remove(string $class): self
+    {
+        if($this->has($class)) {
+            unset($this->instances[$class]);
+        }
+
+        return $this;
     }
 
     /**
