@@ -1,5 +1,5 @@
 import $ from "jquery";
-import "ImportStyle";
+import "@compiled/ImportStyle";
 
 function initializeComponents(container = document) {
   $(container)
