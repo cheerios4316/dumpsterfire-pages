@@ -1,11 +1,6 @@
 import $ from "jquery";
 import "@compiled/ImportStyle";
 
-// @todo move js context import into something along the lines of ImportStyle.ts
-// @ts-ignore
-const contextJs = require.context("/public/js", true, /\.js$/);
-contextJs.keys().forEach(contextJs);
-
 function initializeComponents(container = document) {
   $(container)
     .find('[class*="-component"]')

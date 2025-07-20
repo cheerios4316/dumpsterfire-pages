@@ -10,7 +10,7 @@ use DumpsterfirePages\PageTemplate\PageStructureComponents\PageWrapperComponent\
 
 ?>
 
-<div class="page-wrapper-component">
+<div class="page-wrapper-component contents">
     <?php foreach($this->getItems() as $item) {
         $item->render();
     } ?>
