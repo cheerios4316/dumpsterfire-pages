@@ -11,7 +11,7 @@ final class Validate
      * @param mixed $value
      * @param class-string<Validator> $validator
      */
-    private static function validate($value, string $validator)
+    public static function validate($value, string $validator)
     {
         $validator = Container::getInstance()->get($validator);
 
