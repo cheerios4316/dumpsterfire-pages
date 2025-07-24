@@ -1,11 +1,14 @@
 <?php
 
 namespace DumpsterfirePages\Container;
+use DumpsterfirePages\Exceptions\ContainerException;
 use DumpsterfirePages\Interfaces\ContainerInterface;
 use DumpsterfirePages\Interfaces\LoggerInterface;
 use DumpsterfirePages\Interfaces\SingletonInterface;
+use Exception;
 use ReflectionClass;
 use DumpsterfirePages\Interfaces\ILoggable;
+use ReflectionException;
 
 /**
  * @template T
@@ -33,11 +36,13 @@ class Container implements SingletonInterface, ContainerInterface
      *
      * @param class-string<T> $class
      * @return T|null
+     * @throws ContainerException
+     * @throws ReflectionException
      */
     public function create(string $class)
     {
         if (is_subclass_of($class, SingletonInterface::class)) {
-            return $class::getInstance();
+            return Container::getInstance();
         }
 
         try {
@@ -52,10 +57,9 @@ class Container implements SingletonInterface, ContainerInterface
             }
 
             return $instance;
-        } catch (\Exception $e) {
-            if(self::$logger) {
-                self::$logger->log($e->getMessage());
-            }
+        } catch (Exception $e) {
+            self::$logger?->log($e->getMessage());
+
             if(self::$suppress) {
                 return null;
             }
@@ -68,9 +72,11 @@ class Container implements SingletonInterface, ContainerInterface
      * Gets a cached instance of a class
      *
      * @param class-string<T> $class
-     * @param bool $new 
+     * @param bool $new
      * @param bool $overwriteExisting
      * @return T|null
+     * @throws ContainerException
+     * @throws ReflectionException
      */
     public function get(string $class, bool $new = false, bool $overwriteExisting = false)
     {
@@ -84,7 +90,7 @@ class Container implements SingletonInterface, ContainerInterface
             return $instance;
         }
 
-        if(!isset($this->instances[$class])) {
+        if(!$this->has($class)) {
             $this->instances[$class] = $this->create($class);
         }
 

@@ -3,10 +3,12 @@
 namespace DumpsterfirePages;
 
 use DumpsterfirePages\Container\Container;
+use DumpsterfirePages\Exceptions\ContainerException;
 use DumpsterfirePages\Interfaces\IRenderable;
 use DumpsterfirePages\Interfaces\ISetup;
 use DumpsterfirePages\Interfaces\RendererInterface;
 use DumpsterfirePages\Renderer\ComponentRenderer;
+use ReflectionException;
 
 /**
  * Base Component class.
@@ -35,6 +37,8 @@ abstract class Component implements IRenderable
      * Returns the HTML content of a component.
      *
      * @return string
+     * @throws ContainerException
+     * @throws ReflectionException
      */
     public function content(): string
     {
@@ -99,6 +103,8 @@ abstract class Component implements IRenderable
      *
      * @param class-string<RendererInterface>|null $className
      * @return RendererInterface
+     * @throws ContainerException
+     * @throws ReflectionException
      */
     protected function getComponentRenderer(?string $className = null): RendererInterface
     {
