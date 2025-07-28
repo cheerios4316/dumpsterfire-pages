@@ -4,6 +4,7 @@ namespace DumpsterfirePages\Router;
 
 use DumpsterfirePages\Container\Container;
 use DumpsterfirePages\Controller\Page404Controller;
+use DumpsterfirePages\Exceptions\ContainerException;
 use DumpsterfirePages\Exceptions\ControllerException;
 use DumpsterfirePages\Interfaces\LoggerInterface;
 use DumpsterfirePages\Exceptions\RoutingException;
@@ -13,6 +14,7 @@ use DumpsterfirePages\Interfaces\RouterInterface;
 use DumpsterfirePages\PageComponent;
 use Exception;
 use DumpsterfirePages\Interfaces\ILoggable;
+use ReflectionException;
 use Throwable;
 
 class DumpsterfireRouter implements RouterInterface, ILoggable
@@ -31,8 +33,6 @@ class DumpsterfireRouter implements RouterInterface, ILoggable
 
     protected ?LoggerInterface $logger = null;
 
-    protected Container $container;
-
     protected ?PageComponent $page404Component = null;
 
     /**
@@ -41,15 +41,17 @@ class DumpsterfireRouter implements RouterInterface, ILoggable
      */
     protected static array $routes = [];
 
-    public function __construct(Container $container)
-    {
-        $this->container = $container;
-    }
+    public function __construct(
+        protected Container $container,
+        protected RoutesMatcher $routesMatcher
+    ) {}
 
     /**
      * @param string $route
      * @return ControllerInterface
+     * @throws ContainerException
      * @throws ControllerException
+     * @throws ReflectionException
      */
     public function getControllerFromRoute(string $route): ControllerInterface
     {
@@ -102,6 +104,9 @@ class DumpsterfireRouter implements RouterInterface, ILoggable
         return self::$routers;
     }
 
+    /**
+     * @return ControllerInterface[]
+     */
     public function getRoutes(): array
     {
         return [...self::$routes];
@@ -116,35 +121,14 @@ class DumpsterfireRouter implements RouterInterface, ILoggable
     {
         $routes = $this->getRoutes();
 
-        /**
-         * @var class-string<ControllerInterface> $controller
-         */
-        foreach ($routes as $path => $controller) {
-            $path =  '/' . $this->prefix . trim($path, '/');
-            
-            $pattern = preg_replace('/\{(\w+)\}/', '(?P<$1>[^/]+)', $path);
-            $pattern = '#^' . str_replace('\\/', '/', $pattern) . '\/?$#';
-
-
-            preg_match($pattern, $route, $matches);
-
-            if (!empty($matches) && is_array($matches) && !empty($matches[0])) {
-                $controller = $this->container->create($controller);
-
-                if($controller instanceof IControllerParams) {
-                    $controller->setParams($matches);
-                }
-
-                return $controller;
-            }
-        }
-
-        throw new Exception('Controller not found for route ' . $route);
+        return $this->routesMatcher->match($route, $routes);
     }
 
     /**
      * @return ControllerInterface
      * @throws ControllerException
+     * @throws ContainerException
+     * @throws ReflectionException
      */
     public function get404Controller(): ControllerInterface
     {

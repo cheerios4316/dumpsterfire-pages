@@ -3,9 +3,11 @@
 namespace DumpsterfirePages\ComponentData;
 
 use DumpsterfirePages\Container\Container;
+use DumpsterfirePages\Exceptions\ContainerException;
 use DumpsterfirePages\Interfaces\SingletonInterface;
 use DumpsterfirePages\Component;
 use DumpsterfirePages\Renderer\ComponentPath\ComponentPath;
+use ReflectionException;
 
 class ComponentDataManager implements SingletonInterface
 {
@@ -25,6 +27,16 @@ class ComponentDataManager implements SingletonInterface
         return $this;
     }
 
+    /**
+     * @param Component $component
+     * @param string|null $classPath
+     * @param string|null $viewPath
+     * @param string|null $js
+     * @param string|null $css
+     * @return ComponentDataObject
+     * @throws ContainerException
+     * @throws ReflectionException
+     */
     public function createAndSave(Component $component, ?string $classPath = null, ?string $viewPath = null, ?string $js = null, ?string $css = null): ComponentDataObject
     {
         $componentDataObject = Container::getInstance()->create(ComponentDataObject::class);
@@ -42,6 +54,12 @@ class ComponentDataManager implements SingletonInterface
         return $obj;
     }
 
+    /**
+     * @param Component $component
+     * @return ComponentDataObject|null
+     * @throws ContainerException
+     * @throws ReflectionException
+     */
     public function getComponentData(Component $component): ?ComponentDataObject
     {
         $data = $this->cached[$component::class] ?? null;

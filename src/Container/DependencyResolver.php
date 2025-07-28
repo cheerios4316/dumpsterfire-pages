@@ -3,6 +3,7 @@
 namespace DumpsterfirePages\Container;
 use DumpsterfirePages\Exceptions\ContainerException;
 use ReflectionClass;
+use ReflectionException;
 
 class DependencyResolver
 {
@@ -10,8 +11,9 @@ class DependencyResolver
      * Resolves the dependencies of a given class and returns them in an array
      * 
      * @param ReflectionClass $reflection
-     * @throws ContainerException
      * @return array
+     * @throws ContainerException
+     * @throws ReflectionException
      */
     public function resolve(ReflectionClass $reflection): array
     {
