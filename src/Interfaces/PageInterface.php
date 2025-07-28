@@ -2,4 +2,7 @@
 
 namespace DumpsterfirePages\Interfaces;
 
-interface PageInterface {}
+interface PageInterface
+{
+    public function render(): void;
+}
