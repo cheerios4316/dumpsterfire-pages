@@ -234,6 +234,7 @@ class App implements ILoggable
      * Default init actions are: 
      * - Whoops handler init 
      * - DotEnv init 
+     * It is recommended to use the default actions.
      * @param class-string<InitActionInterface>[] $initActions
      * @return App
      */
