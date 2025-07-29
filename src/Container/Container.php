@@ -42,7 +42,7 @@ class Container implements SingletonInterface, ContainerInterface
     public function create(string $class)
     {
         if (is_subclass_of($class, SingletonInterface::class)) {
-            return Container::getInstance();
+            return $class::getInstance();
         }
 
         try {
