@@ -35,7 +35,7 @@ class App implements ILoggable
     /** @var RouterInterface|null  */
     protected ?RouterInterface $router = null;
 
-    protected bool $enforceHTTPS = true;
+    protected bool $enforceHTTPS = false;
 
     /**
      * Sets the main router for your application. \
