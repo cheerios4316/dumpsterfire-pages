@@ -126,7 +126,7 @@ class App implements ILoggable
      * Will be deprecated
      * @return App
      */
-    public function runInitActions(): self
+    public function init(): self
     {
         foreach($this->initActions as $action) {
 
@@ -240,6 +240,6 @@ class App implements ILoggable
      */
     public static function new(...$initActions): self
     {
-        return Container::getInstance()->create(App::class)->useDefaultInitActions()->runInitActions();
+        return Container::getInstance()->create(App::class)->useDefaultInitActions();
     }
 }
